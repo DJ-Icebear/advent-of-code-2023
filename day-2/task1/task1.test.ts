@@ -31,11 +31,3 @@ describe("Day 2 task 1", () => {
     expect(answer).toBe(2593);
   });
 });
-
-export interface BagContents {
-  red: number;
-  green: number;
-  blue: number;
-}
-
-
