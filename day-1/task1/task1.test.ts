@@ -1,5 +1,9 @@
-import { expect, test, describe, it } from "bun:test";
-import { fileLinesToArray } from "../file_io/file";
+import { expect, describe, it } from "bun:test";
+import { fileLinesToArray } from "../../file_io/file";
+
+const isChar = (letter: string) => {
+  return letter >= '0' && letter <= '9'
+};
 
 const getFirstAndLastDigit = (text: string): number => {
   // loop through each character in the string
@@ -22,17 +26,20 @@ const getAnswer = (lines: Array<string>): number =>
     return acc + num
   }, 0)
 
-describe("Day 1", () => {
-  it("Task 1 sample input should give correct output", async () => {
+describe("Day 1 task 1", () => {
+  it("sample input gives correct output", async () => {
 
-    const lines = await fileLinesToArray('./day-1/sample.txt')
+    const lines = await fileLinesToArray('./day-1/task1/sample.txt')
 
     const answer = getAnswer(lines)
     expect(answer).toBe(142);
   });
+
+  it("full file input gives correct output", async () => {
+
+    const lines = await fileLinesToArray('./day-1/task1/input.txt')
+
+    const answer = getAnswer(lines)
+    expect(answer).toBe(54331);
+  });
 });
-
-const isChar = (letter: string) => {
-  return letter >= '0' && letter <= '9'
-};
-
